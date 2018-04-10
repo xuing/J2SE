@@ -60,15 +60,16 @@ public class RegisterFrame extends JFrame {
 		
 		JButton button = new JButton("\u6CE8\u518C");
 		button.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				if(checkInput()){
-					AccountService.addAccount(userName,Password,avaPath);
-					FrameUtil.showInfoMessage("×¢²á³É¹¦~~");
-					LoginFrame loginFrame = new LoginFrame(userName,Password);
-					loginFrame.setVisible(true);
-					dispose();
-				}
-			}
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(checkInput()){
+                    AccountService.addAccount(userName,Password,avaPath);
+                    FrameUtil.showInfoMessage("æ³¨å†ŒæˆåŠŸ~~");
+                    LoginFrame loginFrame = new LoginFrame(userName,Password);
+                    loginFrame.setVisible(true);
+                    dispose();
+                }
+            }
 		});
 		button.setBounds(65, 186, 113, 27);
 		getContentPane().add(button);
@@ -124,30 +125,29 @@ public class RegisterFrame extends JFrame {
 		
 	}
 	
-	protected boolean checkInput() {
-		userName = userNameText.getText();
-		Password = String.valueOf(PasswordText.getPassword());
-		if(rexCheckNickName(userName)&&rexCheckPassword(Password)){
-			return true;
-		}else {
-			FrameUtil.showErrorMessage("ÊäÈëÓĞÎó");
-			return false;
-		}
-			
-	}
-	
-
     public static boolean rexCheckNickName(String nickName) {
-        // êÇ³Æ¸ñÊ½£ºÏŞ16¸ö×Ö·û£¬Ö§³ÖÖĞÓ¢ÎÄ¡¢Êı×Ö¡¢¼õºÅ»òÏÂ»®Ïß
+        // æ˜µç§°æ ¼å¼ï¼šé™16ä¸ªå­—ç¬¦ï¼Œæ”¯æŒä¸­è‹±æ–‡ã€æ•°å­—ã€å‡å·æˆ–ä¸‹åˆ’çº¿
         String regStr = "^[\\u4e00-\\u9fa5_a-zA-Z0-9-]{1,16}$";
         return nickName.matches(regStr);
     }
 
     public static boolean rexCheckPassword(String input) {
-        // 6-20 Î»£¬×ÖÄ¸¡¢Êı×Ö¡¢×Ö·û
+        // 6-20 ä½ï¼Œå­—æ¯ã€æ•°å­—ã€å­—ç¬¦
         //String reg = "^([A-Z]|[a-z]|[0-9]|[`-=[];,./~!@#$%^*()_+}{:?]){6,20}$";
-        String regStr = "^([A-Z]|[a-z]|[0-9]|[`~!@#$%^&*()+=|{}':;',\\\\[\\\\].<>/?~£¡@#£¤%¡­¡­&*£¨£©¡ª¡ª+|{}¡¾¡¿¡®£»£º¡±¡°¡¯¡££¬¡¢£¿]){6,20}$";
+        String regStr = "^([A-Z]|[a-z]|[0-9]|[`~!@#$%^&*()+=|{}':;',\\\\[\\\\].<>/?~ï¼@#ï¿¥%â€¦â€¦&*ï¼ˆï¼‰â€”â€”+|{}ã€ã€‘â€˜ï¼›ï¼šâ€â€œâ€™ã€‚ï¼Œã€ï¼Ÿ]){6,20}$";
         return input.matches(regStr);
+    }
+
+    protected boolean checkInput() {
+        userName = userNameText.getText();
+        Password = String.valueOf(PasswordText.getPassword());
+        if (rexCheckNickName(userName) && rexCheckPassword(Password)) {
+            return true;
+        } else {
+            FrameUtil.showErrorMessage("è¾“å…¥æœ‰è¯¯");
+            return false;
+        }
+
     }
 
 

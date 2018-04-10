@@ -15,16 +15,14 @@ import javax.swing.JLabel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
-import org.jvnet.substance.SubstanceLookAndFeel;
-import org.jvnet.substance.skin.RavenSkin;
-import org.jvnet.substance.skin.SaharaSkin;
-
 import com.nsu.MyChatRoom.Bean.Account;
 import com.nsu.MyChatRoom.Bean.UserNoPass;
 import com.nsu.MyChatRoom.Exce.MyChatException;
 import com.nsu.MyChatRoom.Service.*;
 import com.nsu.MyChatRoom.Util.DBTool;
 import com.nsu.MyChatRoom.Util.FrameUtil;
+import org.pushingpixels.substance.api.SubstanceLookAndFeel;
+import org.pushingpixels.substance.api.skin.SaharaSkin;
 
 public class LoginFrame extends JFrame {
 	private JButton btn_cancel;
@@ -40,7 +38,7 @@ public class LoginFrame extends JFrame {
 		
 		setBounds(FrameUtil.FrameBound+600, FrameUtil.FrameBound+300, 400, 300);
 		FrameUtil.FrameBound += 200;
-		setTitle("µÇÂ¼³ÌĞò");
+        setTitle("ç™»å½•ç¨‹åº");
 		
 		initPane();
 	
@@ -77,7 +75,7 @@ public class LoginFrame extends JFrame {
 				userName = userNameField.getText().trim();
 				password = String.valueOf(passwordField.getPassword());
 				Account account = AccountService.loginVerify(userName,password);
-				System.out.println("µã»÷µÇÂ¼ºóĞÅÏ¢:"+account.getUserName());
+                System.out.println("ç‚¹å‡»ç™»å½•åä¿¡æ¯:" + account.getUserName());
 				if(null != account){
 					ChatRoom chatRoom = new ChatRoom(account);
 					chatRoom.setBounds(FrameUtil.FrameBound, FrameUtil.FrameBound, 600, 600);
@@ -131,27 +129,27 @@ public class LoginFrame extends JFrame {
 		try {
 			//UIManager.setLookAndFeel(new SubstanceLookAndFeel());
 			// UIManager.setLookAndFeel(new SubstanceBusinessLookAndFeel());
-			// SubstanceLookAndFeel.setSkin(new CremeSkin());//°×É«
-			// SubstanceLookAndFeel.setSkin(new BusinessSkin());//»ÒÉ«
-			// SubstanceLookAndFeel.setSkin(new AutumnSkin());//·ÛºìÉ«
-			// SubstanceLookAndFeel.setSkin(new BusinessBlueSteelSkin());//Çà»ÒÉ«
-			// SubstanceLookAndFeel.setSkin(new BusinessBlackSteelSkin());//ºÚÉ«
-			// SubstanceLookAndFeel.setSkin(new ChallengerDeepSkin());//Éî×ÏÉ«
-			// SubstanceLookAndFeel.setSkin(new CremeCoffeeSkin());//°×É«
-			 SubstanceLookAndFeel.setSkin(new SaharaSkin());//Ç³ÂÌÉ«
-			// SubstanceLookAndFeel.setSkin(new RavenSkin());//ºÚÉ«
-			// SubstanceLookAndFeel.setSkin(new OfficeSilver2007Skin());//Ç³»ÒÉ«
-			// SubstanceLookAndFeel.setSkin(new NebulaSkin());//»Ò°×É«
-			// SubstanceLookAndFeel.setSkin(new ModerateSkin());//»ÒÇàÉ«
-			// SubstanceLookAndFeel.setSkin(new ModerateSkin());//»ÒÇàÉ«
+            // SubstanceLookAndFeel.setSkin(new CremeSkin());//ç™½è‰²
+            // SubstanceLookAndFeel.setSkin(new BusinessSkin());//ç°è‰²
+            // SubstanceLookAndFeel.setSkin(new AutumnSkin());//ç²‰çº¢è‰²
+            // SubstanceLookAndFeel.setSkin(new BusinessBlueSteelSkin());//é’ç°è‰²
+            // SubstanceLookAndFeel.setSkin(new BusinessBlackSteelSkin());//é»‘è‰²
+            // SubstanceLookAndFeel.setSkin(new ChallengerDeepSkin());//æ·±ç´«è‰²
+            // SubstanceLookAndFeel.setSkin(new CremeCoffeeSkin());//ç™½è‰²
+            SubstanceLookAndFeel.setSkin(new SaharaSkin());//æµ…ç»¿è‰²
+            // SubstanceLookAndFeel.setSkin(new RavenSkin());//é»‘è‰²
+            // SubstanceLookAndFeel.setSkin(new OfficeSilver2007Skin());//æµ…ç°è‰²
+            // SubstanceLookAndFeel.setSkin(new NebulaSkin());//ç°ç™½è‰²
+            // SubstanceLookAndFeel.setSkin(new ModerateSkin());//ç°é’è‰²
+            // SubstanceLookAndFeel.setSkin(new ModerateSkin());//ç°é’è‰²
 			// SubstanceLookAndFeel.setCurrentWatermark(new
 			// SubstanceBubblesWatermark());
 			// SubstanceLookAndFeel.setCurrentGradientPainter(new
 			// StandardGradientPainter());
 			// SubstanceLookAndFeel.setCurrentBorderPainter(new
-			// StandardBorderPainter());//Ë®À¶É«
+            // StandardBorderPainter());//æ°´è“è‰²
 			// SubstanceLookAndFeel.setCurrentTheme(new
-			// SubstanceTerracottaTheme());//»ÆÉ«
+            // SubstanceTerracottaTheme());//é»„è‰²
 			// SubstanceLookAndFeel;
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -166,7 +164,7 @@ public class LoginFrame extends JFrame {
 		 button.addActionListener(new ActionListener() {
 		 	public void actionPerformed(ActionEvent e) {
 		 		//					register();
-				//					FrameUtil.showInfoMessage("×¢²á³É¹¦");
+                //					FrameUtil.showInfoMessage("æ³¨å†ŒæˆåŠŸ");
 	 			RegisterFrame registerFrame = new RegisterFrame();
 	 			registerFrame.setBounds(600, 300, 448, 300);
 	 			registerFrame.setVisible(true);
@@ -174,16 +172,16 @@ public class LoginFrame extends JFrame {
 		 	}
 
 //			private void register() throws MyATMException {
-//				String name = FrameUtil.InputString("ÇëÊäÈëÓÃ»§Ãû");
-//				String password = FrameUtil.InputString("ÇëÊäÈëÃÜÂë");
-//				int money = FrameUtil.InputInt("ÇëÊäÈë½ğ¶î");
+//				String name = FrameUtil.InputString("è¯·è¾“å…¥ç”¨æˆ·å");
+//				String password = FrameUtil.InputString("è¯·è¾“å…¥å¯†ç ");
+//				int money = FrameUtil.InputInt("è¯·è¾“å…¥é‡‘é¢");
 //				//AccountService.register(name, password, money);	
 //			}
 		 });
 		 button.setBounds(152, 203, 93, 23);
 		 getContentPane().add(button);
 //		 JLabel background = new JLabel(img);
-//		 background.setFont(new Font("ËÎÌå", Font.PLAIN, 18));
+//		 background.setFont(new Font("å®‹ä½“", Font.PLAIN, 18));
 //		 
 //		 background.setBounds(0, 0, 700, 500);
 //		 getContentPane().add(background);

@@ -47,7 +47,7 @@ public class AccountDao {
 			}
 			return accounts;
 		} catch (SQLException e) {
-			System.out.println("¶ÔÏóst´´½¨Ê§°Ü");
+			System.out.println("å¯¹è±¡ståˆ›å»ºå¤±è´¥");
 			e.printStackTrace();
 			return null;
 		}finally {
@@ -119,7 +119,7 @@ public class AccountDao {
 		PreparedStatement pstmt;
 		try {
 			getConn();
-			sql = "delete from Account where username = \"?\"";
+			sql = "delete from Account where username = ?";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, account.getUserName());
 			pstmt.executeUpdate();

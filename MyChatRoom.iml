@@ -16,11 +16,11 @@
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
     </content>
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="inheritedJdk" />
+    <orderEntry type="jdk" jdkName="1.8" jdkType="JavaSDK" />
     <orderEntry type="module-library">
       <library name="mysql-connector-java-5.1.40-bin.jar">
         <CLASSES>
-          <root url="file://C:/Program Files (x86)/MySQL/Connector.J 5.1/mysql-connector-java-5.1.40-bin.jar" />
+          <root url="jar://$MODULE_DIR$/mysql-connector-java-5.1.46.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -29,7 +29,7 @@
     <orderEntry type="module-library">
       <library name="com.nsu.substance.jar">
         <CLASSES>
-          <root url="file://C:/Users/六花/Desktop/新建文件夹 (3)/com.nsu.substance.jar" />
+          <root url="jar://$MODULE_DIR$/substance-7.2.1.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />

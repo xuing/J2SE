@@ -9,7 +9,7 @@ import com.nsu.MyChatRoom.Dao.AccountDao;
 import com.nsu.MyChatRoom.Exce.MyChatException;
 import com.nsu.MyChatRoom.Util.FrameUtil;
 
-public class AccountService { //TODO ¸ÄÎªChatService
+public class AccountService { //TODO æ”¹ä¸ºChatService
 	private static ArrayList<Account> accounts = null;
 
 	static{

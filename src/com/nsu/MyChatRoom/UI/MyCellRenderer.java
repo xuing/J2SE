@@ -25,7 +25,7 @@ public	class MyCellRenderer extends JLabel implements ListCellRenderer {
 			int index, boolean isSelected, boolean cellHasFocus) {
 		String s = value.toString();
 		setText(s);
-		setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));//¼ÓÈë¿í¶ÈÎª5µÄ¿Õ°×±ß¿ò
+		setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));//åŠ å…¥å®½åº¦ä¸º5çš„ç©ºç™½è¾¹æ¡†
 		if (isSelected) {
 			setBackground(list.getSelectionBackground());
 			setForeground(list.getSelectionForeground());
@@ -33,7 +33,7 @@ public	class MyCellRenderer extends JLabel implements ListCellRenderer {
 			setBackground(list.getBackground());
 			setForeground(list.getForeground());
 		}
-		setIcon(icons.get(index));//ÉèÖÃÍ¼Æ¬
+		setIcon(icons.get(index));//è®¾ç½®å›¾ç‰‡
 		setEnabled(list.isEnabled());
 		setFont(list.getFont().deriveFont((float) (30)));
 		setOpaque(true);

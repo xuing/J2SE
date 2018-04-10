@@ -29,7 +29,7 @@ public class Service {
 		userNameList = new Vector<>();
 		nameMap = new HashMap<>();
 		/**
-		 * ¿ªÆô·şÎñ¶ËÏß³Ì£¬ÎŞÏŞ½ÓÊÜ¿Í»§¶ËÇëÇó
+		 * å¼€å¯æœåŠ¡ç«¯çº¿ç¨‹ï¼Œæ— é™æ¥å—å®¢æˆ·ç«¯è¯·æ±‚
 		 */
 		new Thread(new Runnable() {
 
@@ -37,20 +37,20 @@ public class Service {
 			public void run() {
 				try {
 					server = new ServerSocket(AccountService.ServicePort);
-					System.out.println("·şÎñÆ÷ÔÚ¶Ë¿ÚºÅÎª" + ServiceConstans.SERVER_PORT + "µÄ¶Ë¿Ú¿ªÆô");
-					chatSever.showMessage("·şÎñÆ÷ÔÚ¶Ë¿ÚºÅÎª" + ServiceConstans.SERVER_PORT + "µÄ¶Ë¿Ú¿ªÆô");
+					System.out.println("æœåŠ¡å™¨åœ¨ç«¯å£å·ä¸º" + ServiceConstans.SERVER_PORT + "çš„ç«¯å£å¼€å¯");
+					chatSever.showMessage("æœåŠ¡å™¨åœ¨ç«¯å£å·ä¸º" + ServiceConstans.SERVER_PORT + "çš„ç«¯å£å¼€å¯");
 					while (true) {
 						Socket client = server.accept();
-						System.out.println("IPµØÖ·Îª" + client.getInetAddress().getHostAddress() + "µÄ¿Í»§¶ËÒÑÁ¬½Ó"); //TODO ¿ÉÒÔÉ¾
+						System.out.println("IPåœ°å€ä¸º" + client.getInetAddress().getHostAddress() + "çš„å®¢æˆ·ç«¯å·²è¿æ¥"); //TODO å¯ä»¥åˆ 
 						MyClient myClient = new MyClient(client);
 //						reader = new ObjectInputStream(client.getInputStream());
 //						writer = new ObjectOutputStream(client.getOutputStream());
 //						writers.add(writer);
 //						readers.add(reader);
-//						sockets.add(client);// ½«¿Í»§¶ËµÄsocketÌí¼Óµ½¼¯ºÏÖĞ
-						// ¿ªÆôÏß³ÌÓëclientÍ¨ĞÅ
+//						sockets.add(client);// å°†å®¢æˆ·ç«¯çš„socketæ·»åŠ åˆ°é›†åˆä¸­
+						// å¼€å¯çº¿ç¨‹ä¸clienté€šä¿¡
 						new TransMsg(nameMap,myClient).start();
-						//nameMap°üº¬UserNoPassºÍclient¼¯ºÏ,ĞÂÏß³ÌÒªMapºÍµ±Ç°socket
+						//nameMapåŒ…å«UserNoPasså’Œclienté›†åˆ,æ–°çº¿ç¨‹è¦Mapå’Œå½“å‰socket
 					}
 				} catch (Exception e) {
 
@@ -80,14 +80,14 @@ public class Service {
 		public void run() {
 			Message message;
 			while ((message = myClient.readMessage())!=null) {
-				System.out.println("½ÓÊÕµ½ÏûÏ¢");
+				System.out.println("æ¥æ”¶åˆ°æ¶ˆæ¯");
 				switch (message.getFlag()) {
 				case Message.SINGLE_CHAT:
 					break;
 				case Message.NOTIFY_SERVER:
 					System.out.println(message);
 //						System.out.println(client.getPort()+" "+client.getLocalAddress());
-//						System.out.println("Writes´óĞ¡:"+writers.size());
+//						System.out.println("Writeså¤§å°:"+writers.size());
 					NotifyServer(message);
 					break;
 				default:
@@ -111,7 +111,7 @@ public class Service {
 		private synchronized void sendMessage(Message message) throws IOException {
 //			for (ObjectOutputStream writer : writers) {
 //				writer.writeObject(message);
-//				System.out.println("·¢ËÍÊ±datas´óĞ¡:"+message.getUserList().size());
+//				System.out.println("å‘é€æ—¶dataså¤§å°:"+message.getUserList().size());
 //				writer.flush();
 //			}
 //			Map<String, String> map = new HashMap<String, String>();
@@ -122,7 +122,7 @@ public class Service {
 				userNoPass = entry.getKey();
 				myClient = entry.getValue();
 				myClient.sendMessage(message);
-				System.out.println("sendMessageÄÚÊä³ö:"+myClient.getPort()+" "+message.getUserList().length);
+				System.out.println("sendMessageå†…è¾“å‡º:" + myClient.getPort() + " " + message.getUserList().length);
 			}
 		}
 	}

@@ -7,7 +7,7 @@ import java.util.Vector;
 import com.nsu.MyChatRoom.Bean.Account;
 import com.nsu.MyChatRoom.Bean.UserNoPass;
 
-//µ±Ç°ÓÃ»§Ãû¡¢ÁÄÌì¶ÔÏó¡¢ÁÄÌìÄÚÈÝ¡¢ÁÄÌìÓïÆøºÍÊÇ·ñË½ÁÄ½øÐÐ
+//å½“å‰ç”¨æˆ·åã€èŠå¤©å¯¹è±¡ã€èŠå¤©å†…å®¹ã€èŠå¤©è¯­æ°”å’Œæ˜¯å¦ç§èŠè¿›è¡Œ
 public  class Message implements Serializable {
 	private UserNoPass userInfo;
 	private String targetName;
@@ -15,9 +15,9 @@ public  class Message implements Serializable {
 	private String other;
 	private int flag;
 	private UserNoPass[] userList;
-	
 
-	public static final int NOTIFY_SERVER = 0; //TODO ¸Ä³ÉÃ¶¾Ù¿ÉÄÜ¸üºÃ.
+
+    public static final int NOTIFY_SERVER = 0; //TODO æ”¹æˆæžšä¸¾å¯èƒ½æ›´å¥½.
 	public static final int SINGLE_CHAT = 1;
 	public static final int UPDATE_USERLIST = 2;
 	

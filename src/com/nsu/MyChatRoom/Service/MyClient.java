@@ -46,18 +46,18 @@ public class MyClient {
 
 	public void sendMessage(Message message){
 		try {
-			writer.reset(); //ÈÕÁË¹·!
+            writer.reset(); //æ—¥äº†ç‹—!
 //			if(client == null)System.out.println("client null");
 //			else if(message == null)System.out.println("message null");
 //			if(message.getUserList() != null)
-//			System.out.println("MyClientÄÚ1Êä³ö:"+client.getPort()+" "+message.getUserList().size());
+//			System.out.println("MyClientå†…1è¾“å‡º:"+client.getPort()+" "+message.getUserList().size());
 			writer.writeUnshared(message);
 //			if(message.getUserList() != null)
-//			System.out.println("MyClientÄÚ2Êä³ö:"+client.getPort()+" "+message.getUserList().size());
+//			System.out.println("MyClientå†…2è¾“å‡º:"+client.getPort()+" "+message.getUserList().size());
 			writer.flush();
 			
 //			if(message.getUserList() != null)
-//			System.out.println("MyClientÄÚ3Êä³ö:"+client.getPort()+" "+message.getUserList().size());
+//			System.out.println("MyClientå†…3è¾“å‡º:"+client.getPort()+" "+message.getUserList().size());
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

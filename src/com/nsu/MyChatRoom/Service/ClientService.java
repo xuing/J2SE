@@ -12,8 +12,6 @@ import java.net.UnknownHostException;
 
 import javax.swing.JOptionPane;
 
-import org.jvnet.substance.utils.SubstanceConstants.ScrollPaneButtonPolicyKind;
-
 import com.nsu.MyChatRoom.Bean.Account;
 import com.nsu.MyChatRoom.UI.ChatRoom;
 import com.nsu.MyChatRoom.UI.Constants;
@@ -39,11 +37,11 @@ public class ClientService {
 			String ip = AccountService.ServiceIp;
 			int port = AccountService.ServicePort;
 
-			// ÑéÖ¤Íê²ÎÊıÅäÖÃºó¼´¿ÉÁ¬½Ó·şÎñÆ÷
-			Socket socket = new Socket(ip, port);  //writerºÍreaderµÄË³ĞòÎÊÌâºÜÖØÒª!
+            // éªŒè¯å®Œå‚æ•°é…ç½®åå³å¯è¿æ¥æœåŠ¡å™¨
+            Socket socket = new Socket(ip, port);  //writerå’Œreaderçš„é¡ºåºé—®é¢˜å¾ˆé‡è¦!
 			myClient = new MyClient(socket);
 			myClient.sendMessage(MessageFactory.notifyServerOnline(account));
-			// ¿ªÆôÏß³Ì½ÓÊÕ·şÎñ¶Ë×ª·¢µÄÊı¾İ
+            // å¼€å¯çº¿ç¨‹æ¥æ”¶æœåŠ¡ç«¯è½¬å‘çš„æ•°æ®
 			new receiveMessage().start();
 			
 			return true;
@@ -58,7 +56,7 @@ public class ClientService {
 		public void run() {
 			synchronized(this){
 				while ((message = myClient.readMessage()) != null) {
-					System.out.println("¿Í»§¶Ë"+account.getUserName()+"½ÓÊÜµ½µÄ´óĞ¡:"+message.getUserList().length);
+                    System.out.println("å®¢æˆ·ç«¯" + account.getUserName() + "æ¥å—åˆ°çš„å¤§å°:" + message.getUserList().length);
 					switch (message.getFlag()) {
 						case Message.SINGLE_CHAT:
 							String fromUser = message.getTargetName();

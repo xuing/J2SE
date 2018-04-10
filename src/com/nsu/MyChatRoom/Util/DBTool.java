@@ -15,7 +15,7 @@ public class DBTool {
 		try {
 			Class.forName(driver);
 		} catch (ClassNotFoundException e) {
-			System.out.println("��������ʧ��");
+			System.out.println("驱动加载失败");
 			e.printStackTrace();
 		}
 	}
@@ -26,7 +26,7 @@ public class DBTool {
 			new DBTool();
 			conn = DriverManager.getConnection(url,userName,password);
 		} catch (SQLException e) {
-			System.out.println("����ʧ��");
+			System.out.println("链接失败");
 			e.printStackTrace();
 		}
 		return conn;
@@ -36,7 +36,7 @@ public class DBTool {
 		try {
 			conn.close();
 		} catch (SQLException e) {
-			System.out.println("�رճ���");
+			System.out.println("关闭出错");
 			e.printStackTrace();
 		}
 	}

@@ -22,7 +22,7 @@ public class FrameUtil {
 	public static int listAvatarWeight = 80;
 	public static int listAvatarHeight = 50;
 	public static int FrameBound = 0;
-	public static int imgNumber = 0; //TODO ???????????
+	public static int imgNumber = 0; //TODO 当前图片的数量
 	private static int bgnum = 0;
 	
 	public static String bgGetImage(String imgPath,int w,int h) throws Exception{
@@ -41,29 +41,29 @@ public class FrameUtil {
         
 //		imgNumber = AccountService.getUserCount();
 	
-        String srcImageFile = imgPath;  
-        //??????  
-        BufferedImage bi = ImageIO.read(new File(srcImageFile));  
-        //??????????????��  
-        Image prevImage = bi.getScaledInstance(w, h, Image.SCALE_DEFAULT);  
-        //?????image  
-        BufferedImage tag = new BufferedImage(w, h,BufferedImage.TYPE_INT_RGB);  
-        //???????????  
+        String srcImageFile = imgPath;
+		//得到源图片
+        BufferedImage bi = ImageIO.read(new File(srcImageFile));
+		//创建此图像的缩放版本
+        Image prevImage = bi.getScaledInstance(w, h, Image.SCALE_DEFAULT);
+		//输出的image
+        BufferedImage tag = new BufferedImage(w, h,BufferedImage.TYPE_INT_RGB);
+		//将图像绘制上去
         Graphics graphics = tag.createGraphics();      
         graphics.drawImage(prevImage, 0, 0, w, h, null);  
-        graphics.dispose();  
-        //?????  
+        graphics.dispose();
+		//输出流
         String newName = "img/temp_"+qianzhui+"_"+(AccountService.getUserCount()+imgNumber++)+".jpg"; 
 
         OutputStream outs = new FileOutputStream(newName);
-        //????  
+		//画出
         ImageIO.write(tag, "JPEG", outs);  
         outs.close();  
         return newName;
     }  
 	
 	public static void showErrorMessage(String string) {
-		showMessageDialog(string,"????",JOptionPane.ERROR_MESSAGE);
+		showMessageDialog(string, "错误", JOptionPane.ERROR_MESSAGE);
 	}
 	
 	public static void showInfoMessage(String string) {
@@ -76,9 +76,9 @@ public class FrameUtil {
 
 	public static int InputInt(String string) throws MyChatException {
 		try {
-			return Integer.parseInt(JOptionPane.showInputDialog(null, string, "??????"));
+			return Integer.parseInt(JOptionPane.showInputDialog(null, string, "请输入"));
 		} catch (NumberFormatException e) {
-			throw new MyChatException("??????????");
+			throw new MyChatException("请输入整数");
 		}
 		
 	}
@@ -86,15 +86,15 @@ public class FrameUtil {
 	public static int InputUnsignedInt(String string) throws MyChatException {
 		int res = InputInt(string);
 		if(res >= 0) return res;
-		else throw new MyChatException("???????????????0");
+		else throw new MyChatException("输入的数字必须大于0");
 	}
 
 	public static String InputString(String string) {
-		return JOptionPane.showInputDialog(null, string, "??????");
+		return JOptionPane.showInputDialog(null, string, "请输入");
 	}
 
 	public static String getServiceAddress(){
-		return "127.0.0.1";  //TODO ??????
+		return "127.0.0.1";  //TODO 动态获取
 	}
 	
 	public static String getServicePort(){

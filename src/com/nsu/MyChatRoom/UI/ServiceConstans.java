@@ -10,7 +10,7 @@ public class ServiceConstans {
 	public static final String SEND_CONTENT_TO_CLIENT = "`getContent`";
 	public static final String SEND_NAME_TO_CLIENT = "`getUser`";
 	public static final String SEND_TO_ALL = "`sendToAll`";
-	public static final String[] legals ={"–Ì≈Ù∑…","Ω≠‘Û√Ò","∏Ú"};
+	public static final String[] legals = {"ËÆ∏ÈπèÈ£û", "Ê±üÊ≥ΩÊ∞ë", "Ëõ§"};
 	public static final String LEGAL_FLAG = "`legalFlag`";
 	public static final String SERVER_TO_ALL = "`sendServerMessage`";
 }
